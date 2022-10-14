@@ -1,0 +1,61 @@
+﻿<Window x:Class="CanvasCliente.Views.ClienteView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CanvasCliente.Views"
+        xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:mvvm="clr-namespace:CanvasCliente.ViewModels"
+        mc:Ignorable="d"
+        Title="ClienteView" Height="500" Width="800">
+    <Window.DataContext>
+        <mvvm:ClienteViewModels></mvvm:ClienteViewModels>
+    </Window.DataContext>
+    <Window.Background>
+        <ImageBrush ImageSource="https://c4.wallpaperflare.com/wallpaper/476/636/21/abstract-colorful-digital-art-wallpaper-preview.jpg">
+
+        </ImageBrush>
+    </Window.Background>
+    <Grid>
+        <StackPanel>
+            <TextBlock FontSize="35" FontFamily="Impact" HorizontalAlignment="Center">ENVIA UN RECTANGULO</TextBlock>
+        </StackPanel>
+        <WrapPanel Background="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="auto">
+            <StackPanel Width="250" Height="auto" HorizontalAlignment="Center">
+                <StackPanel >
+                    <TextBlock HorizontalAlignment="Center" Foreground="White" FontSize="20">Dirección IP del servidor</TextBlock>
+                    <TextBox Text="{Binding IP}" Height="20" Width="200"></TextBox>
+                </StackPanel>
+                <StackPanel >
+                    <TextBlock HorizontalAlignment="Center" Foreground="White" FontSize="20">Alto</TextBlock>
+                    <TextBox Text="{Binding Alto}" Height="20" Width="200"></TextBox>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock HorizontalAlignment="Center" Foreground="White" FontSize="20">Ancho</TextBlock>
+                    <TextBox Text="{Binding Ancho}" Height="20" Width="200"></TextBox>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock HorizontalAlignment="Center" Foreground="White" FontSize="20">Cordenada X</TextBlock>
+                    <TextBox Text="{Binding X}" Height="20" Width="200"></TextBox>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock HorizontalAlignment="Center" Foreground="White" FontSize="20">Cordenada Y</TextBlock>
+                    <TextBox Text="{Binding Y}" Height="20" Width="200"></TextBox>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock HorizontalAlignment="Center" Foreground="White" FontSize="20">Elegir Color</TextBlock>
+                    <xctk:ColorPicker x:Name="colorpicker" Margin="25,0" SelectedColor="{Binding ColorSeleccionado}" DisplayColorAndName="True" AvailableColorsSortingMode="HueSaturationBrightness"></xctk:ColorPicker>
+                </StackPanel>
+                
+                <StackPanel Margin="20">
+                    <Button Command="{Binding EnviarCommand}" FontSize="20" BorderBrush="White" BorderThickness="1" Background="Purple" Width="70" Height="30">
+                        Enviar
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+           
+
+        </WrapPanel>
+    </Grid>
+</Window>
